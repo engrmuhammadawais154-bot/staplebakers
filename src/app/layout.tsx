@@ -46,8 +46,7 @@ export default function RootLayout({
                 <div className="footer-col">
                   <h4>Visit Us</h4>
                   <ul>
-                    <li>123 Bakery Lane</li>
-                    <li>New York, NY 10012</li>
+                    <li>Faisalabad, Pakistan</li>
                     <li>Mon-Sat: 7am - 5pm</li>
                     <li>Sun: 8am - 3pm</li>
                   </ul>
