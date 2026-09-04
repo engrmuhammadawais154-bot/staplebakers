@@ -211,14 +211,14 @@ p {
   width: 45%;
   max-width: 500px;
   z-index: 1;
-  animation: float 6s ease-in-out infinite;
-  will-change: transform;
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
   display: block;
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Featured Products */
@@ -614,9 +614,9 @@ p {
 }
 
 @keyframes float {
-  0% { transform: translate3d(0, -50%, 0) }
-  50% { transform: translate3d(0, -55%, 0) }
-  100% { transform: translate3d(0, -50%, 0) }
+  0% { transform: translate3d(0, 0px, 0) }
+  50% { transform: translate3d(0, -15px, 0) }
+  100% { transform: translate3d(0, 0px, 0) }
 }
 
 /* Responsive */
