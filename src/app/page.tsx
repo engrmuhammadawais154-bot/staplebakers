@@ -89,7 +89,7 @@ export default function Home() {
           </div>
           <div style={{ display: 'flex', gap: 'var(--spacing-md)', justifyContent: 'center', marginTop: 'var(--spacing-lg)' }}>
             <a href="mailto:hello@staplebakers.com" className="btn btn-outline">Email Us</a>
-            <a href="https://wa.me/923001234567" target="_blank" className="btn btn-primary">WhatsApp Us</a>
+            <a href="https://wa.me/923209739217" target="_blank" className="btn btn-primary">WhatsApp Us</a>
           </div>
         </div>
       </section>

@@ -20,7 +20,7 @@ export default function Header() {
     });
     message += `\n*Total: Rs ${cartTotal}*`;
     
-    const whatsappUrl = `https://wa.me/923001234567?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/923209739217?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
