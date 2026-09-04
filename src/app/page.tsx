@@ -75,7 +75,7 @@ export default function Home() {
             melt-in-your-mouth experience. Today, we bring our handcrafted, premium biscuits straight 
             to your doorstep. No shortcuts, just pure, honest ingredients and a whole lot of love.
           </p>
-          <img src="/staple bakers-01.png" alt="Staple Bakers Story" style={{ width: '150px', margin: '0 auto', opacity: 0.8 }} />
+          <img src="/staple bakers-03.png" alt="Staple Bakers Story" style={{ width: '150px', margin: '0 auto', opacity: 0.8 }} />
         </div>
       </section>
 

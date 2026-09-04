@@ -31,7 +31,7 @@ export default function RootLayout({
               <div className="footer-grid">
                 <div className="footer-col footer-brand">
                   <Link href="/" className="footer-logo">
-                    <img src="/staple bakers-01.png" alt="Staple Bakers Dark Logo" />
+                    <img src="/staple bakers-03.png" alt="Staple Bakers Dark Logo" />
                   </Link>
                   <p>Artisanal baked goods crafted with love, precision, and the finest ingredients.</p>
                 </div>
