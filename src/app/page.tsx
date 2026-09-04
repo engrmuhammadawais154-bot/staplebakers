@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProductCard from "../components/ProductCard";
 
 export default function Home() {
   const featuredProducts = [
@@ -6,24 +7,24 @@ export default function Home() {
       id: 1,
       name: "Butter Biscuits",
       desc: "Rich, melt-in-your-mouth classic butter biscuits baked to golden perfection.",
-      price500: "Rs 1000",
-      price1000: "Rs 2000",
+      price500: 1000,
+      price1000: 2000,
       image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop"
     },
     {
       id: 2,
       name: "Lotus Biscuits",
       desc: "Deliciously crisp biscuits infused with the unique caramelized taste of Lotus Biscoff.",
-      price500: "Rs 1000",
-      price1000: "Rs 2000",
+      price500: 1000,
+      price1000: 2000,
       image: "https://images.unsplash.com/photo-1606041011872-596590462066?q=80&w=600&auto=format&fit=crop"
     },
     {
       id: 3,
       name: "Choco Biscuits",
       desc: "Decadent chocolate biscuits packed with rich cocoa flavor for the ultimate treat.",
-      price500: "Rs 1000",
-      price1000: "Rs 2000",
+      price500: 1000,
+      price1000: 2000,
       image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop"
     }
   ];
@@ -59,34 +60,36 @@ export default function Home() {
           
           <div className="product-grid">
             {featuredProducts.map(product => (
-              <div key={product.id} className="product-card">
-                <div className="product-image-wrap">
-                  <img src={product.image} alt={product.name} className="product-image" />
-                </div>
-                <div className="product-info">
-                  <h3 className="product-title">{product.name}</h3>
-                  <p className="product-desc">{product.desc}</p>
-                  
-                  <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
-                    <span style={{ fontSize: '0.85rem', background: 'rgba(11,16,33,0.05)', padding: '4px 8px', borderRadius: '4px', fontWeight: '500' }}>
-                      500g: {product.price500}
-                    </span>
-                    <span style={{ fontSize: '0.85rem', background: 'rgba(11,16,33,0.05)', padding: '4px 8px', borderRadius: '4px', fontWeight: '500' }}>
-                      1000g: {product.price1000}
-                    </span>
-                  </div>
-
-                  <div className="product-footer">
-                    <span className="product-price">From {product.price500}</span>
-                    <button className="btn btn-accent" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>Add to Order</button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
-          
-          <div style={{ textAlign: 'center', marginTop: 'var(--spacing-xl)' }}>
-            <Link href="#menu" className="btn btn-outline">View Full Menu</Link>
+        </div>
+      </section>
+
+      <section id="about" className="about">
+        <div className="container">
+          <h2>Our Story</h2>
+          <p>
+            Born from a passion for perfect bakes, Staple Bakers started in a small home kitchen. 
+            We spent years perfecting our biscuit recipes, ensuring every bite delivers that nostalgic, 
+            melt-in-your-mouth experience. Today, we bring our handcrafted, premium biscuits straight 
+            to your doorstep. No shortcuts, just pure, honest ingredients and a whole lot of love.
+          </p>
+          <img src="/staple bakers-01.png" alt="Staple Bakers Story" style={{ width: '150px', margin: '0 auto', opacity: 0.8 }} />
+        </div>
+      </section>
+
+      <section id="contact" className="contact">
+        <div className="container">
+          <div className="section-header">
+            <h2>Get In Touch</h2>
+            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-navy-light)' }}>
+              Have a special request or wholesale inquiry? We'd love to hear from you.
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: 'var(--spacing-md)', justifyContent: 'center', marginTop: 'var(--spacing-lg)' }}>
+            <a href="mailto:hello@staplebakers.com" className="btn btn-outline">Email Us</a>
+            <a href="https://wa.me/923001234567" target="_blank" className="btn btn-primary">WhatsApp Us</a>
           </div>
         </div>
       </section>
