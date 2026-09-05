@@ -1,34 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import ProductCard from "../components/ProductCard";
+import { products as featuredProducts } from "../data/products";
 
 export default function Home() {
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Butter Biscuits",
-      desc: "Rich, melt-in-your-mouth classic butter biscuits baked to golden perfection.",
-      price500: 1000,
-      price1000: 2000,
-      image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-      id: 2,
-      name: "Lotus Biscuits",
-      desc: "Deliciously crisp biscuits infused with the unique caramelized taste of Lotus Biscoff.",
-      price500: 1000,
-      price1000: 2000,
-      image: "https://images.unsplash.com/photo-1606041011872-596590462066?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-      id: 3,
-      name: "Choco Biscuits",
-      desc: "Decadent chocolate biscuits packed with rich cocoa flavor for the ultimate treat.",
-      price500: 1000,
-      price1000: 2000,
-      image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop"
-    }
-  ];
 
   return (
     <>

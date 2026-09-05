@@ -2,19 +2,11 @@
 
 import React, { useState } from 'react';
 import { useCart } from './CartProvider';
-
-type ProductProps = {
-  id: number;
-  name: string;
-  desc: string;
-  price500: number;
-  price1000: number;
-  image: string;
-};
-
 import Image from 'next/image';
+import Link from 'next/link';
+import { Product } from '../data/products';
 
-export default function ProductCard({ product }: { product: ProductProps }) {
+export default function ProductCard({ product }: { product: Product }) {
   const [selectedSize, setSelectedSize] = useState<'500g' | '1000g'>('500g');
   const { addToCart } = useCart();
   
@@ -34,13 +26,17 @@ export default function ProductCard({ product }: { product: ProductProps }) {
 
   return (
     <div className="product-card">
-      <div className="product-image-wrap">
-        <Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw, 300px" style={{ objectFit: 'cover' }} className="product-image" />
-      </div>
-      <div className="product-info">
-        <h3 className="product-title">{product.name}</h3>
-        <p className="product-desc">{product.desc}</p>
-        
+      <Link href={`/product/${product.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+        <div className="product-image-wrap">
+          <Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw, 300px" style={{ objectFit: 'cover' }} className="product-image" />
+        </div>
+        <div className="product-info" style={{paddingBottom: 0}}>
+          <h3 className="product-title">{product.name}</h3>
+          <p className="product-desc">{product.desc}</p>
+        </div>
+      </Link>
+      
+      <div className="product-info" style={{paddingTop: '0.5rem'}}>
         <div className="size-selector">
           <button 
             className={`size-btn ${selectedSize === '500g' ? 'active' : ''}`}
