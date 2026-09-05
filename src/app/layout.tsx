@@ -13,6 +13,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Staple Bakers | Artisanal Bakery",
   description: "Handcrafted pastries, fresh sourdough, and the finest coffee. Order online.",
+  icons: {
+    icon: "/staple bakers-01.png",
+  },
 };
 
 export default function RootLayout({
