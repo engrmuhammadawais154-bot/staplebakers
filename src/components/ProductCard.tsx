@@ -12,6 +12,8 @@ type ProductProps = {
   image: string;
 };
 
+import Image from 'next/image';
+
 export default function ProductCard({ product }: { product: ProductProps }) {
   const [selectedSize, setSelectedSize] = useState<'500g' | '1000g'>('500g');
   const { addToCart } = useCart();
@@ -33,7 +35,7 @@ export default function ProductCard({ product }: { product: ProductProps }) {
   return (
     <div className="product-card">
       <div className="product-image-wrap">
-        <img src={product.image} alt={product.name} className="product-image" />
+        <Image src={product.image} alt={product.name} fill sizes="(max-width: 768px) 100vw, 300px" style={{ objectFit: 'cover' }} className="product-image" />
       </div>
       <div className="product-info">
         <h3 className="product-title">{product.name}</h3>
