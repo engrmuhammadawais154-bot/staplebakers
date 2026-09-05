@@ -34,8 +34,8 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-          <div className="hero-content" style={{ background: '#fff', padding: '2rem', border: 'var(--border-thick)', boxShadow: 'var(--shadow-lg)' }}>
-            <h1 className="hero-title">Your daily <span style={{color: 'var(--color-accent)'}}>staple</span> for extraordinary bakes!</h1>
+          <div className="hero-content">
+            <h1 className="hero-title">Your daily <span>staple</span> for extraordinary bakes.</h1>
             <p className="hero-subtitle">
               We believe every moment deserves a masterpiece. Discover our handcrafted selection of premium, freshly baked biscuits.
             </p>
@@ -44,7 +44,7 @@ export default function Home() {
               <Link href="#about" className="btn btn-outline">Our Story</Link>
             </div>
           </div>
-          <div className="hero-image" style={{position: 'relative', zIndex: 10}}>
+          <div className="hero-image">
             <Image src="/mascot-02.png" alt="Staple Bakers Baker Mascot" width={500} height={500} style={{ objectFit: 'contain' }} priority />
           </div>
         </div>
@@ -52,8 +52,11 @@ export default function Home() {
 
       <section id="menu" className="featured">
         <div className="container">
-          <div className="section-header" style={{ background: '#fff', padding: '1.5rem', border: 'var(--border-thick)', display: 'inline-block', boxShadow: 'var(--shadow-md)', marginBottom: '3rem' }}>
-            <h2 style={{margin: 0}}>Our Signature Biscuits</h2>
+          <div className="section-header">
+            <h2>Our Signature Biscuits</h2>
+            <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-navy-light)' }}>
+              Baked fresh daily using only the finest ingredients. Available in convenient 500g and 1000g pouches.
+            </p>
           </div>
           
           <div className="product-grid">
@@ -61,28 +64,28 @@ export default function Home() {
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-          
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
-             <div style={{ background: 'var(--color-yellow)', border: 'var(--border-thick)', padding: '2rem', borderRadius: '50%', boxShadow: 'var(--shadow-lg)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-               <h3 style={{textAlign: 'center', marginBottom: '1rem'}}>Dreaming of a perfect bite?</h3>
-               <Image src="/mascot-01.png" alt="Sleeping Mascot" width={300} height={300} style={{ objectFit: 'contain' }} />
-             </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5rem' }}>
+            <div style={{ textAlign: 'center', maxWidth: '400px' }}>
+              <Image src="/mascot-01.png" alt="Sleeping Mascot" width={250} height={250} style={{ objectFit: 'contain', opacity: 0.9 }} />
+              <h3 style={{ marginTop: '1.5rem', color: 'var(--color-navy)' }}>Dreaming of the perfect bite?</h3>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" className="about" style={{ borderTop: 'var(--border-thick)', borderBottom: 'var(--border-thick)' }}>
+      <section id="about" className="about">
         <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '3rem', flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: '300px' }}>
-            <Image src="/mascot-03.png" alt="Mascot with Cupcake" width={400} height={400} style={{ objectFit: 'contain', filter: 'drop-shadow(8px 8px 0px rgba(0,0,0,1))' }} />
+          <div style={{ flex: 1, minWidth: '300px', textAlign: 'center' }}>
+            <Image src="/mascot-03.png" alt="Mascot with Cupcake" width={350} height={350} style={{ objectFit: 'contain' }} />
           </div>
-          <div style={{ flex: 1, minWidth: '300px', background: '#fff', border: 'var(--border-thick)', padding: '2rem', color: 'var(--color-navy)', boxShadow: 'var(--shadow-lg)' }}>
-            <h2 style={{color: 'var(--color-accent)'}}>Our Story</h2>
-            <p>
+          <div style={{ flex: 1, minWidth: '300px' }}>
+            <h2>Our Story</h2>
+            <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
               Born from a passion for perfect bakes, Staple Bakers started in a small home kitchen. 
               We spent years perfecting our biscuit recipes, ensuring every bite delivers that nostalgic, 
               melt-in-your-mouth experience. Today, we bring our handcrafted, premium biscuits straight 
-              to your doorstep. No shortcuts, just pure, honest ingredients and a whole lot of love!
+              to your doorstep. No shortcuts, just pure, honest ingredients and a whole lot of love.
             </p>
           </div>
         </div>

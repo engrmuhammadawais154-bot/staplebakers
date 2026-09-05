@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Bangers, Comic_Neue } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { CartProvider } from "../components/CartProvider";
 import Header from "../components/Header";
 
-const bangers = Bangers({
-  weight: '400',
-  subsets: ["latin"],
-  variable: "--font-heading",
-});
-
-const comicNeue = Comic_Neue({
-  weight: ['400', '700'],
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-primary",
 });
@@ -28,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bangers.variable} ${comicNeue.variable}`}>
+    <html lang="en" className={`${outfit.variable}`}>
       <body>
         <CartProvider>
           <Header />
