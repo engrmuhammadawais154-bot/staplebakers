@@ -820,42 +820,124 @@ p {
   padding: 1rem 2rem;
 }
 
-/* Responsive */
+/* Responsive Mobile App Layout */
 @media (max-width: 768px) {
-  .pdp-split { flex-direction: column; }
-  .pdp-main-image-wrap { height: 350px; }
-  .pdp-title { font-size: 2.25rem; }
+  /* Typography Adjustments */
   h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
   
-  .mobile-toggle {
+  /* Hero Section */
+  .hero { 
+    flex-direction: column; 
+    text-align: center; 
+    padding-top: var(--spacing-lg); 
+    min-height: auto;
+  }
+  .hero-image { 
+    position: relative; 
+    right: 0; 
+    transform: none; 
+    width: 100%; 
+    margin-top: var(--spacing-xl); 
+    animation: none; 
+  }
+  .hero-actions { justify-content: center; }
+
+  /* Horizontal Scroll Carousel for Products */
+  .product-grid {
     display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
+    -webkit-overflow-scrolling: touch;
+    gap: var(--spacing-md);
+    padding-left: var(--spacing-lg); /* Initial offset */
+    padding-right: var(--spacing-lg);
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .product-grid::-webkit-scrollbar {
+    display: none;
   }
   
-  .nav-links-wrap {
+  .product-card {
+    flex: 0 0 85vw; /* Each card takes up 85% of viewport width */
+    scroll-snap-align: center;
+    border-radius: var(--radius-md);
+  }
+
+  /* App-Like PDP Layout */
+  .pdp-container { 
+    padding: 0; /* Edge to edge on mobile */
+    animation: none;
+  }
+  .pdp-hero {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+  }
+  .pdp-split { 
+    flex-direction: column; 
+    gap: 0;
+  }
+  .pdp-image-col {
+    gap: 0;
+  }
+  .pdp-main-image-wrap { 
+    height: 45vh; 
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .pdp-info-col {
+    padding: var(--spacing-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 150px; /* Space for sticky bar */
+  }
+  .pdp-title { 
+    font-size: 2.25rem; 
+  }
+
+  /* Sticky Bottom Buy Bar */
+  .pdp-add-to-cart-section {
     position: fixed;
-    top: 80px;
+    bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(253, 251, 247, 0.98);
-    backdrop-filter: blur(12px);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease;
-    z-index: 99;
-  }
-  
-  .nav-links-wrap.open {
-    transform: translateY(0);
-  }
-  
-  .nav-links {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid rgba(28, 25, 23, 0.08);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 -10px 40px rgba(28, 25, 23, 0.1);
+    margin: 0;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
+    gap: 0.5rem;
+  }
+  .pdp-size-selector h4 { display: none; }
+  .pdp-action-bar { margin-top: 0 !important; }
+  .pdp-price { font-size: 1.5rem !important; }
+  .pdp-btn { padding: 0.75rem 1.5rem !important; font-size: 1rem !important; }
+
+  /* Header & Mobile Toggle */
+  .mobile-toggle {
+    display: flex;
+    z-index: 1002; /* Above full-screen menu */
   }
   
-  .hero { flex-direction: column; text-align: center; padding-top: var(--spacing-lg); }
-  .hero-image { position: relative; right: 0; transform: none; width: 100%; margin-top: var(--spacing-lg); animation: none; }
-  .hero-actions { justify-content: center; }
+  /* Hide native nav links, handled by Framer Motion full-screen menu */
+  .nav-links-wrap {
+    display: none; 
+  }
 }

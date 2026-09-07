@@ -42,12 +42,12 @@ export default function Header() {
             <img src="/staple bakers-04.png" alt="Staple Bakers Logo" />
           </Link>
           
-          <nav className={`nav-links-wrap ${isMobileMenuOpen ? 'open' : ''}`}>
+          <nav className="nav-links-wrap desktop-only">
             <ul className="nav-links">
-              <li><Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
-              <li><Link href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</Link></li>
-              <li><Link href="#about" onClick={() => setIsMobileMenuOpen(false)}>Our Story</Link></li>
-              <li><Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="#menu">Menu</Link></li>
+              <li><Link href="#about">Our Story</Link></li>
+              <li><Link href="#contact">Contact</Link></li>
             </ul>
           </nav>
           
@@ -66,12 +66,79 @@ export default function Header() {
               )}
             </button>
             
-            <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Menu">
+            <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Menu" style={{ zIndex: 1002 }}>
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </header>
+
+      {/* Full-Screen Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            className="mobile-menu-overlay"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.4 }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(252, 251, 249, 0.95)',
+              zIndex: 1001,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '2rem'
+            }}
+          >
+            <motion.ul 
+              style={{ listStyle: 'none', textAlign: 'center', gap: '2.5rem', display: 'flex', flexDirection: 'column' }}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0 },
+                show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+            >
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Menu', href: '#menu' },
+                { label: 'Our Story', href: '#about' },
+                { label: 'Contact', href: '#contact' },
+              ].map((link, i) => (
+                <motion.li 
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+                  }}
+                >
+                  <Link 
+                    href={link.href} 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    style={{ fontSize: '2.5rem', fontWeight: 600, color: 'var(--color-text)', textDecoration: 'none', letterSpacing: '-0.02em' }}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+            
+            <motion.div 
+              style={{ marginTop: 'auto', textAlign: 'center' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <img src="/staple bakers-04.png" alt="Staple Bakers" style={{ height: '40px', opacity: 0.5 }} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Cart Drawer */}
       <AnimatePresence>
