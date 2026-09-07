@@ -68,8 +68,6 @@ export default function Header() {
         </div>
       </header>
 
-      </header>
-
       {/* Cart Drawer */}
       <AnimatePresence>
         {isCartOpen && (
