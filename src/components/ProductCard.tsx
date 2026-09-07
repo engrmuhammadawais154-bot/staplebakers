@@ -32,7 +32,7 @@ export default function ProductCard({ product }: { product: Product }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
     >
       <Link href={`/product/${product.id}`} style={{textDecoration: 'none', color: 'inherit', flexGrow: 1, display: 'flex', flexDirection: 'column'}}>
         <div className="product-image-wrap">

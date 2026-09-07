@@ -16,7 +16,7 @@ const staggerContainer = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
 };
 
 export default function Home() {
@@ -54,7 +54,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <h2>Our Signature Biscuits</h2>
             <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-text-muted)' }}>
@@ -73,7 +73,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <div style={{ textAlign: 'center', maxWidth: '400px' }}>
               <Image src="/mascot-01.png" alt="Sleeping Mascot" width={250} height={250} style={{ objectFit: 'contain', opacity: 0.9 }} />
@@ -90,7 +90,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <Image src="/mascot-03.png" alt="Mascot with Cupcake" width={380} height={380} style={{ objectFit: 'contain' }} />
           </motion.div>
@@ -99,7 +99,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <h2 style={{ color: 'var(--color-bg)' }}>Our Story</h2>
             <p style={{ fontSize: '1.1rem', color: 'rgba(252, 251, 249, 0.8)', lineHeight: 1.8 }}>
@@ -119,7 +119,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <h2>Get In Touch</h2>
             <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-text-muted)' }}>
@@ -131,7 +131,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <a href="mailto:hello@staplebakers.com" className="btn btn-outline">Email Us</a>
             <a href="https://wa.me/923209739217" target="_blank" className="btn btn-primary">WhatsApp Us</a>
