@@ -5,6 +5,8 @@ import Link from "next/link";
 import { CartProvider } from "../components/CartProvider";
 import Header from "../components/Header";
 
+import MobileBottomNav from "../components/MobileBottomNav";
+
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-primary",
@@ -60,6 +62,7 @@ export default function RootLayout({
               </div>
             </div>
           </footer>
+          <MobileBottomNav />
         </CartProvider>
       </body>
     </html>

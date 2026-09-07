@@ -820,6 +820,11 @@ p {
   padding: 1rem 2rem;
 }
 
+/* Mobile Bottom Nav */
+.mobile-bottom-nav {
+  display: none;
+}
+
 /* Responsive Mobile App Layout */
 @media (max-width: 768px) {
   /* Typography Adjustments */
@@ -909,7 +914,7 @@ p {
   /* Sticky Bottom Buy Bar */
   .pdp-add-to-cart-section {
     position: fixed;
-    bottom: 0;
+    bottom: 70px;
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
@@ -939,5 +944,80 @@ p {
   /* Hide native nav links, handled by Framer Motion full-screen menu */
   .nav-links-wrap {
     display: none; 
+  }
+
+  /* Mobile Bottom Nav Display */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(28, 25, 23, 0.08);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 0.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    width: 60px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s ease;
+  }
+  
+  .bottom-nav-item.active {
+    color: var(--color-text);
+  }
+  
+  .bottom-nav-cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottom-nav-badge {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+
+  body {
+    padding-bottom: 70px; /* Space for bottom nav */
+  }
+
+  /* Hide top cart btn on mobile */
+  .header .cart-btn {
+    display: none;
   }
 }
