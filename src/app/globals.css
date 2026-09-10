@@ -848,30 +848,16 @@ p {
   }
   .hero-actions { justify-content: center; }
 
-  /* Horizontal Scroll Carousel for Products */
+  /* Vertical List for Products */
   .product-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-padding: var(--spacing-md);
-    padding-bottom: var(--spacing-lg);
-    -webkit-overflow-scrolling: touch;
-    gap: var(--spacing-md);
-    padding-left: var(--spacing-lg); /* Initial offset */
-    padding-right: var(--spacing-lg);
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .product-grid::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    gap: var(--spacing-lg); /* Slightly tighter gap on mobile than desktop */
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .product-card {
-    flex: 0 0 85vw; /* Each card takes up 85% of viewport width */
-    scroll-snap-align: center;
     border-radius: var(--radius-md);
   }
 
