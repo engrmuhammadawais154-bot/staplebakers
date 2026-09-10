@@ -23,14 +23,16 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="pdp-container">
-      <div className="pdp-hero" style={{ background: 'var(--color-surface)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)', padding: 'var(--spacing-xl)' }}>
-        <Link href="/#menu" className="btn btn-outline" style={{ display: 'inline-flex', marginBottom: '2rem', padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-full)' }}>
-          <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> Back to Menu
-        </Link>
-        
+      {/* Floating Back Button */}
+      <Link href="/#menu" className="pdp-back-btn">
+        <ArrowLeft size={20} />
+        <span className="back-text">Back</span>
+      </Link>
+      
+      <div className="pdp-hero">
         <div className="pdp-split">
           <div className="pdp-image-col">
-            <div className="pdp-main-image-wrap" style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', backgroundColor: '#F3F0EA', position: 'relative', height: '500px' }}>
+            <div className="pdp-main-image-wrap">
               <Image 
                 src={product.image} 
                 alt={product.name} 
@@ -39,34 +41,40 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                 sizes="(max-width: 768px) 100vw, 50vw" 
                 style={{ objectFit: 'cover' }} 
               />
-            </div>
-            
-            <div className="pdp-mascot-hint" style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: 'var(--color-bg)', padding: '1rem', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-sm)' }}>
-              <Image src={mascotImg} alt="Mascot" width={80} height={80} style={{ objectFit: 'contain' }} />
-              <div className="mascot-speech">
-                <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--color-text-muted)' }}>Perfect pairing: <br/><strong style={{ color: 'var(--color-text)' }}>{product.pairing}</strong></p>
-              </div>
+              <div className="image-gradient-overlay"></div>
             </div>
           </div>
           
           <div className="pdp-info-col">
-            <h1 className="pdp-title" style={{ fontSize: '3rem', color: 'var(--color-text)', marginBottom: '0.5rem' }}>{product.name}</h1>
-            <p className="pdp-long-desc" style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '2rem' }}>{product.longDescription}</p>
+            <div className="pdp-info-header">
+              <h1 className="pdp-title">{product.name}</h1>
+              <p className="pdp-long-desc">{product.longDescription}</p>
+            </div>
             
-            <div className="pdp-details" style={{ borderTop: '1px solid rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
-              <div className="pdp-detail-section" style={{ padding: '1rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Tasting Notes</h3>
-                <p style={{ margin: 0, color: 'var(--color-text-muted)' }}>{product.tastingNotes}</p>
+            {/* Mascot Callout Card moved inside info column */}
+            <div className="pdp-mascot-hint">
+              <div className="mascot-img-wrap">
+                <Image src={mascotImg} alt="Mascot" width={60} height={60} style={{ objectFit: 'contain' }} />
+              </div>
+              <div className="mascot-speech">
+                <p>Perfect pairing: <strong>{product.pairing}</strong></p>
+              </div>
+            </div>
+            
+            <div className="pdp-details">
+              <div className="pdp-detail-section">
+                <h3>Tasting Notes</h3>
+                <p>{product.tastingNotes}</p>
               </div>
               
-              <div className="pdp-detail-section" style={{ padding: '1rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Ingredients & Provenance</h3>
-                <p style={{ margin: 0, color: 'var(--color-text-muted)' }}>{product.ingredients}</p>
+              <div className="pdp-detail-section">
+                <h3>Ingredients & Provenance</h3>
+                <p>{product.ingredients}</p>
               </div>
               
-              <div className="pdp-detail-section allergen-alert" style={{ padding: '1rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Allergen Information</h3>
-                <p style={{ margin: 0, fontWeight: 600, color: 'var(--color-text)' }}>{product.allergens}</p>
+              <div className="pdp-detail-section allergen-alert">
+                <h3>Allergen Information</h3>
+                <p>{product.allergens}</p>
               </div>
             </div>
 
