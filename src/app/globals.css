@@ -998,7 +998,7 @@ p {
   /* Sticky Bottom Buy Bar */
   .pdp-add-to-cart-section {
     position: fixed;
-    bottom: 0;
+    bottom: 70px; /* Attach above mobile bottom nav */
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
